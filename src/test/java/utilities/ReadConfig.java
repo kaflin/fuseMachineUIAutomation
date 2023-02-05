@@ -17,6 +17,10 @@ public class ReadConfig {
             System.out.println("Exception is " + e.getMessage());
         }
     }
+    public String getApplicationURL() {
+        String url = pro.getProperty("baseURL");
+        return url;
+    }
     public String getChromePath(){
         String chromePath=pro.getProperty("chromepath");
         return chromePath;

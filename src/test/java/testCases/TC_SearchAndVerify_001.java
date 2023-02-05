@@ -1,27 +1,27 @@
 package testCases;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
+import pageObjects.BaseClass;
+import pageObjects.Constants;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 public class TC_SearchAndVerify_001 extends BaseClass {
-    String text = "Sneakers";
 
     @Test(priority = 1)
-    public void searchProduct() throws IOException, InterruptedException {
+    public void searchProduct() throws IOException {
         logger.info("amazon.com is opened");
         driver.findElement(By.xpath("//*[@id=\"glow-ingress-block\"]")).click();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         Select drpCountry = new Select(driver.findElement(By.xpath("//*[@id=\"GLUXCountryList\"]")));
         drpCountry.selectByVisibleText("United Kingdom");
         driver.findElement(By.xpath("//*[@name=\"glowDoneButton\"]")).click();
-        Thread.sleep(5000);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebElement element = driver.findElement(By.xpath("//*[@id=\"twotabsearchtextbox\"]"));
-        element.sendKeys(text);
+        element.sendKeys(Constants.TEXT);
         WebElement searchClick = driver.findElement(By.xpath("//*[@id=\"nav-search-submit-button\"]"));
         action.moveToElement(searchClick).perform();
         searchClick.click();
@@ -45,11 +45,9 @@ public class TC_SearchAndVerify_001 extends BaseClass {
                     WebElement element = driver.findElement(By.xpath("//*[@id=\"search\"]/div[1]/div[1]/div/span[1]/div[1]/div[" + i + "]"));
                     actualText = element.getText();
                 }
-                if (actualText.toUpperCase().contains(text.toUpperCase())) {
-                    System.out.println("Search Result Matched with Search Text");
+                if (actualText.toUpperCase().contains(Constants.TEXT.toUpperCase())) {
                     logger.info("Search Result Matched with Search Text");
                 } else {
-                    System.out.println("Search Result doesnot  Matched with Search Text");
                     logger.info("Search Result doesnot Matched with Search Text");
                 }
             } catch (Exception e) {
@@ -59,7 +57,7 @@ public class TC_SearchAndVerify_001 extends BaseClass {
     }
 
     @Test(priority = 2)
-    public void addCart() throws InterruptedException {
+    public void addCart() {
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 
         WebElement element = driver.findElement(By.xpath("//*[@id=\"search\"]/div[1]/div[1]/div/span[1]/div[1]/div[2]"));
@@ -67,19 +65,20 @@ public class TC_SearchAndVerify_001 extends BaseClass {
 //        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         WebElement elementText= driver.findElement(By.xpath("//*[@id=\"productTitle\"]"));
         String actualText = elementText.getText();
-        System.out.println(actualText);
-        Thread.sleep(2000);
+        logger.info(actualText);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         Select drpSize = new Select(driver.findElement(By.xpath("//*[@name=\"dropdown_selected_size_name\"]")));
         drpSize.selectByVisibleText("7");
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//*[@id=\"addToCart_feature_div\"]/div[1]")).click();
         driver.findElement(By.xpath("//*[@id=\"sw-gtc\"]/span")).click();
-         WebElement elemenText =driver.findElement(By.xpath("//span/span/span[@class=\"a-truncate-cut\"]"));
-         String shoeText = elemenText.getText();
+        WebElement elemenText =driver.findElement(By.xpath("//span/span/span[@class=\"a-truncate-cut\"]"));
+        String shoeText = elemenText.getText();
         System.out.println(shoeText);
         if(actualText.equalsIgnoreCase(shoeText)){
-            System.out.println("Product is same as we selected after searching");
+            logger.info("Product is same as we selected after searching");
         }else{
-            System.out.println("Product is not same as we selected after searching");
+            logger.info("Product is not same as we selected after searching");
         }
 
 
