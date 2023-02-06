@@ -1,12 +1,12 @@
 package testCases;
+import base.BaseClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.BaseClass;
-import pageObjects.Constants;
+import testData.Constants;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
