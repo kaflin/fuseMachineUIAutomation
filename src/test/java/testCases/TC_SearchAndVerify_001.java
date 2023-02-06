@@ -54,7 +54,6 @@ public class TC_SearchAndVerify_001 extends BaseClass {
     @Test(priority = 2)
     public void addProductToCart() {
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-
         WebElement element = driver.findElement(By.xpath("//*[@id=\"search\"]/div[1]/div[1]/div/span[1]/div[1]/div[2]"));
         element.click();
 //        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
