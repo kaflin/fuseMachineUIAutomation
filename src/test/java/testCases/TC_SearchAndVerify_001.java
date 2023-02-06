@@ -3,6 +3,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.BaseClass;
 import pageObjects.Constants;
@@ -26,7 +27,7 @@ public class TC_SearchAndVerify_001 extends BaseClass {
 
     private void verifySearchResult() {
         String actualText;
-        WebElement text_result = driver.findElement(By.xpath("//span/div/div/span[contains( text(),'RESULTS')]"));
+        WebElement text_result = driver.findElement(By.xpath("//span/div/div/span[contains(text(),'RESULTS')]"));
         String result = text_result.getText();
         if (result.equals("RESULTS")) {
             // scroll down by 300 pixels with Javascript Executor
@@ -62,8 +63,8 @@ public class TC_SearchAndVerify_001 extends BaseClass {
         element.click();
 //        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         WebElement elementText= driver.findElement(By.xpath("//*[@id=\"productTitle\"]"));
-        String actualText = elementText.getText();
-        logger.info(actualText);
+        String productText = elementText.getText();
+        logger.info(productText);
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         Select drpSize = new Select(driver.findElement(By.xpath("//*[@name=\"dropdown_selected_size_name\"]")));
         drpSize.selectByVisibleText("7");
@@ -72,8 +73,8 @@ public class TC_SearchAndVerify_001 extends BaseClass {
         driver.findElement(By.xpath("//*[@id=\"sw-gtc\"]/span")).click();
         WebElement elemenText =driver.findElement(By.xpath("//span/span/span[@class=\"a-truncate-cut\"]"));
         String shoeText = elemenText.getText();
-        System.out.println(shoeText);
-        if(actualText.equalsIgnoreCase(shoeText)){
+        logger.info(shoeText);
+        if(shoeText.contains(productText)){
             logger.info("Product is same as we selected after searching");
         }else{
             logger.info("Product is not same as we selected after searching");
