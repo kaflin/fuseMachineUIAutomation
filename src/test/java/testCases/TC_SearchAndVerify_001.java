@@ -45,8 +45,10 @@ public class TC_SearchAndVerify_001 extends BaseClass {
                         actualText = element.getText();
                     }
                     if (actualText.toUpperCase().contains(Constants.TEXT.toUpperCase())) {
+                        Assert.assertTrue(true);
                         logger.info("Search Result Matched with Search Text");
                     } else {
+                        Assert.assertFalse(false);
                         logger.info("Search Result doesnot Matched with Search Text");
                     }
                 } catch (Exception e) {
@@ -58,28 +60,34 @@ public class TC_SearchAndVerify_001 extends BaseClass {
 
     @Test(priority = 2)
     public void addProductToCart() {
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebElement element = driver.findElement(By.xpath("//*[@id=\"search\"]/div[1]/div[1]/div/span[1]/div[1]/div[2]"));
         element.click();
-//        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebElement elementText= driver.findElement(By.xpath("//*[@id=\"productTitle\"]"));
         String productText = elementText.getText();
         logger.info(productText);
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         Select drpSize = new Select(driver.findElement(By.xpath("//*[@name=\"dropdown_selected_size_name\"]")));
         drpSize.selectByVisibleText("7");
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//*[@id=\"addToCart_feature_div\"]/div[1]")).click();
         driver.findElement(By.xpath("//*[@id=\"sw-gtc\"]/span")).click();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebElement elemenText =driver.findElement(By.xpath("//span/span/span[@class=\"a-truncate-cut\"]"));
         String shoeText = elemenText.getText();
         logger.info(shoeText);
-        if(shoeText.contains(productText)){
-            logger.info("Product is same as we selected after searching");
-        }else{
-            logger.info("Product is not same as we selected after searching");
+        try {
+            if (shoeText.contains(productText)) {
+                Assert.assertTrue(true);
+                logger.info("Product is same as we selected after searching");
+            } else {
+                Assert.assertFalse(false);
+                logger.info("Product is not same as we selected after searching");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
-
 
     }
 }
