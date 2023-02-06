@@ -13,14 +13,9 @@ public class TC_SearchAndVerify_001 extends BaseClass {
 
     @Test(priority = 1)
     public void searchProduct() throws IOException {
-        logger.info("amazon.com is opened");
-        driver.findElement(By.xpath("//*[@id=\"glow-ingress-block\"]")).click();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        Select drpCountry = new Select(driver.findElement(By.xpath("//*[@id=\"GLUXCountryList\"]")));
-        drpCountry.selectByVisibleText("United Kingdom");
-        driver.findElement(By.xpath("//*[@name=\"glowDoneButton\"]")).click();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebElement element = driver.findElement(By.xpath("//*[@id=\"twotabsearchtextbox\"]"));
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         element.sendKeys(Constants.TEXT);
         WebElement searchClick = driver.findElement(By.xpath("//*[@id=\"nav-search-submit-button\"]"));
         action.moveToElement(searchClick).perform();
@@ -57,7 +52,7 @@ public class TC_SearchAndVerify_001 extends BaseClass {
     }
 
     @Test(priority = 2)
-    public void addCart() {
+    public void addProductToCart() {
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 
         WebElement element = driver.findElement(By.xpath("//*[@id=\"search\"]/div[1]/div[1]/div/span[1]/div[1]/div[2]"));
