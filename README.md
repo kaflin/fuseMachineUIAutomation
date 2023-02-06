@@ -38,7 +38,9 @@ Note:You don't need to configure the wedriverin this project beacuse Chrome driv
 you can configure your own webdriver
 
 **Test Cases**
+
   In this project two test case has been automated
+  
    1.Search Product and to verify if amazon showing correct search for result of Top 5 item
    
    2.Add product to cart and to verify if added product in cart is same of what we selected after searching
