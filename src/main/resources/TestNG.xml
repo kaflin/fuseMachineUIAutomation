@@ -4,7 +4,7 @@
 
 <suite name="AmazonAutomation">
     <listeners>
-        <listener class-name="Reporting"/>
+        <listener class-name="utilities.Reporting"/>
     </listeners>
     <test name ="AmazonApp Test">
         <parameter name="browser" value="chrome">
