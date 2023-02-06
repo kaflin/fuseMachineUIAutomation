@@ -33,9 +33,15 @@ System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
 
 WebDriver driver = new ChromeDriver();
 
-Note:You don't need to configure the wedriverin this project beacuse Chrome driver is already used in this project.In case chrome driver doesn't work you
+Note:You don't need to configure the wedriverin this project beacuse Chrome driver is already used in this project.In case chrome driver doesn't work
 
-can configure your own webdriver
+you can configure your own webdriver
+
+**Test Cases**
+  In this project two test case has been automated
+   1.Search Product and to verify if amazon showing correct search for result of Top 5 item
+   
+   2.Add product to cart and to verify if added product in cart is same of what we selected after searching
 
 
 
