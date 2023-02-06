@@ -1,5 +1,5 @@
 package pageObjects;
 
 public class Constants {
-    public static final String TEXT = "Sneakers";
+    public static final String TEXT = "Sneaker";
 }

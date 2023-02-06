@@ -26,27 +26,31 @@ public class TC_SearchAndVerify_001 extends BaseClass {
 
     private void verifySearchResult() {
         String actualText;
-        // scroll down by 200 pixels with Javascript Executor
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("window.scrollBy(0,100)");
-        for (int i = 2; i <= 6; i++) {
-            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-            try {
-                if (i > 4) {
-                    int a= i + 1;
-                    WebElement element = driver.findElement(By.xpath("//*[@id=\"search\"]/div[1]/div[1]/div/span[1]/div[1]/div[" + a + "]"));
-                    actualText = element.getText();
-                } else {
-                    WebElement element = driver.findElement(By.xpath("//*[@id=\"search\"]/div[1]/div[1]/div/span[1]/div[1]/div[" + i + "]"));
-                    actualText = element.getText();
+        WebElement text_result = driver.findElement(By.xpath("//span/div/div/span[contains( text(),'RESULTS')]"));
+        String result = text_result.getText();
+        if (result.equals("RESULTS")) {
+            // scroll down by 300 pixels with Javascript Executor
+            JavascriptExecutor jse = (JavascriptExecutor) driver;
+            jse.executeScript("window.scrollBy(0,300)");
+            for (int i = 2; i <= 6; i++) {
+                driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+                try {
+                    if (i > 4) {
+                        int a = i + 1;
+                        WebElement element = driver.findElement(By.xpath("//*[@id=\"search\"]/div[1]/div[1]/div/span[1]/div[1]/div[" + a + "]"));
+                        actualText = element.getText();
+                    } else {
+                        WebElement element = driver.findElement(By.xpath("//*[@id=\"search\"]/div[1]/div[1]/div/span[1]/div[1]/div[" + i + "]"));
+                        actualText = element.getText();
+                    }
+                    if (actualText.toUpperCase().contains(Constants.TEXT.toUpperCase())) {
+                        logger.info("Search Result Matched with Search Text");
+                    } else {
+                        logger.info("Search Result doesnot Matched with Search Text");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                if (actualText.toUpperCase().contains(Constants.TEXT.toUpperCase())) {
-                    logger.info("Search Result Matched with Search Text");
-                } else {
-                    logger.info("Search Result doesnot Matched with Search Text");
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
         }
     }
