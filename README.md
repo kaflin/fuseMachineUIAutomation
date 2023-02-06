@@ -1,4 +1,4 @@
-# fuseMachineUIAutomation
+# fuse|machines Amazon UI Automation
 
 This is fuse|machine's Assignment to Automate Amazon App UI for SearchProduct and Product Added to cart
 
