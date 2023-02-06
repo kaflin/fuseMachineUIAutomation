@@ -37,6 +37,20 @@ Note:You don't need to configure the wedriverin this project beacuse Chrome driv
 
 you can configure your own webdriver
 
+
+**Usage**
+1. Open IntellijIDE : Open the Intellij  IDE where you have set up your Selenium project.
+
+2. Clone the project: Clone the present project in your system by git clone <**link of project**>
+
+3. Import the Project: If you already have a project, you can import it into IDE. Go to File >  Open > Existing Projects into Workspace. Select the project directory and click Finish.
+
+4. Run the Tests: To run the tests, Click on Run which is in upper section of tab > TestNg.xml. This will launch the browser and run the tests.
+
+5. Debug the Tests: If you encounter errors or failures during the tests, you can debug the tests by setting breakpoints in your code. Right-click on the Java file containing the tests and select Debug.
+
+6. View the Test Results: The test results will be displayed in the Testng view in Intellij. You can view the test results, including the status of each test case, and any error messages.
+
 **Test Cases**
 In this project two test case has been automated
   
