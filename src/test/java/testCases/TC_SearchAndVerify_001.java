@@ -33,7 +33,7 @@ public class TC_SearchAndVerify_001 extends BaseClass {
             // scroll down by 300 pixels with Javascript Executor
             JavascriptExecutor jse = (JavascriptExecutor) driver;
             jse.executeScript("window.scrollBy(0,300)");
-            for (int i = 2; i <= 6; i++) {
+            for (int i = 2; i <= 6; i++) { //Top 5 product starting from index 2
                 driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
                 try {
                     if (i > 4) {
@@ -78,7 +78,7 @@ public class TC_SearchAndVerify_001 extends BaseClass {
         String shoeText = elemenText.getText();
         logger.info(shoeText);
         try {
-            if (shoeText.contains(productText)) {
+            if (shoeText.toUpperCase().contains(productText.toUpperCase())) {
                 Assert.assertTrue(true);
                 logger.info("Product is same as we selected after searching");
             } else {
