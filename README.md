@@ -45,7 +45,7 @@ you can configure your own webdriver
 
 3. Import the Project: If you already have a project, you can import it into IDE. Go to File >  Open > Existing Projects into Workspace. Select the project directory and click Finish.
 
-4. Run the Tests: To run the tests, Click on Run which is in upper section of tab > TestNg.xml. This will launch the browser and run the tests.
+4. Run the Tests: To run the tests, Click on Run which is in upper section of tab > TestNg.xml Or Right click on TestNg.xml file and run TestNg.xml file. This will launch the browser and run the tests.
 
 5. Debug the Tests: If you encounter errors or failures during the tests, you can debug the tests by setting breakpoints in your code. Right-click on the Java file containing the tests and select Debug.
 
