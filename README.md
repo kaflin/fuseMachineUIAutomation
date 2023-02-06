@@ -2,7 +2,7 @@
 
 This is fuse|machine's Assignment to Automate Amazon App UI for SearchProduct and Product Added to cart
 
-****** Tools and dependencies used to create this project as follow:
+**Tools and dependencies used to create this project as follow**:
 
 1. Selenium With Java
 
@@ -24,7 +24,7 @@ download the latest version of IntellijIDE from the official IntellijIDE website
 
 to install maven externally and in pom.xml you can add your dependency
 
-**Configuration*:
+**Configuration**:
 1. Configure the WebDriver: You need to configure the WebDriver executable in your Selenium project. This involves specifying the path to the executable in
 
 your code. For example, if you are using ChromeDriver, you need to add the following code to your
