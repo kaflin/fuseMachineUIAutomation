@@ -66,16 +66,17 @@ public class TC_SearchAndVerify_001 extends BaseClass {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebElement element = driver.findElement(By.xpath("//*[@id=\"search\"]/div[1]/div[1]/div/span[1]/div[1]/div[2]"));
         element.click();
-        WebDriverWait wait4 = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebDriverWait wait4 = new WebDriverWait(driver, Duration.ofMillis(5000));
         WebElement elementText=wait4.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@id=\"productTitle\"]")));
         String productText = elementText.getText();
         logger.info(productText);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         Select drpSize = new Select(driver.findElement(By.xpath("//*[@name=\"dropdown_selected_size_name\"]")));
         drpSize.selectByVisibleText("7");
-        WebDriverWait wait5 = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait5.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"addToCart_feature_div\"]/div[1]"))).click();
-        driver.findElement(By.xpath("//*[@id=\"sw-gtc\"]/span")).click();
+        WebDriverWait wait5 = new WebDriverWait(driver, Duration.ofMillis(5000));
+        wait5.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"add-to-cart-button\"]"))).click();
+        WebDriverWait wait6 = new WebDriverWait(driver, Duration.ofMillis(5000));
+        wait6.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"sw-gtc\"]/span"))).click();
+
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebElement elemenText =driver.findElement(By.xpath("//span/span/span[@class=\"a-truncate-cut\"]"));
         String shoeText = elemenText.getText();
