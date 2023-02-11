@@ -47,17 +47,19 @@ public class BaseClass {
         driver.get(baseURL);
         changeAddress();
     }
-    public void changeAddress() {
+    public void changeAddress() throws InterruptedException {
         logger.info("amazon.com is opened");
         driver.findElement(By.xpath("//*[@id=\"glow-ingress-block\"]")).click();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         Select drpCountry = new Select(driver.findElement(By.xpath("//*[@id=\"GLUXCountryList\"]")));
         drpCountry.selectByVisibleText("United Kingdom");
         driver.findElement(By.xpath("//*[@name=\"glowDoneButton\"]")).click();
+        Thread.sleep(10000);
     }
 
     @AfterClass
     public void tearDown() {
+        driver.close();
         driver.quit();
     }
 

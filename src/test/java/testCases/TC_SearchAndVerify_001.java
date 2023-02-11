@@ -16,15 +16,16 @@ import java.util.concurrent.TimeUnit;
 public class TC_SearchAndVerify_001 extends BaseClass {
 
     @Test(priority = 1)
-    public void searchProduct() throws IOException {
+    public void searchProduct() throws IOException, InterruptedException {
         WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(5));
         WebElement element = wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"twotabsearchtextbox\"]")));
         element.sendKeys(Constants.TEXT);
-        WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(5));
-        WebElement searchClick = wait2.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"nav-search-submit-button\"]")));        action.moveToElement(searchClick).perform();
+       WebElement searchClick= driver.findElement(By.xpath("//*[@id=\"nav-search-submit-button\"]"));
+        action.moveToElement(searchClick).perform();
         searchClick.click();
         captureScreen(driver, "SearchProductTestPassed");
         verifySearchResult();
+        Thread.sleep(5000);
     }
 
     private void verifySearchResult() {
@@ -62,8 +63,7 @@ public class TC_SearchAndVerify_001 extends BaseClass {
     }
 
     @Test(priority = 2)
-    public void addProductToCart() {
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    public void addProductToCart() throws InterruptedException {
         WebElement element = driver.findElement(By.xpath("//*[@id=\"search\"]/div[1]/div[1]/div/span[1]/div[1]/div[2]"));
         element.click();
         WebDriverWait wait4 = new WebDriverWait(driver, Duration.ofMillis(5000));
