@@ -71,7 +71,7 @@ public class TC_SearchAndVerify_001 extends BaseClass {
         String productText = elementText.getText();
         logger.info(productText);
         Select drpSize = new Select(driver.findElement(By.xpath("//*[@name=\"dropdown_selected_size_name\"]")));
-        drpSize.selectByVisibleText("7");
+        drpSize.selectByIndex(7);
         WebDriverWait wait5 = new WebDriverWait(driver, Duration.ofMillis(5000));
         wait5.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"add-to-cart-button\"]"))).click();
         WebDriverWait wait6 = new WebDriverWait(driver, Duration.ofMillis(5000));
