@@ -25,7 +25,7 @@ public class TC_SearchAndVerify_001 extends BaseClass {
         searchClick.click();
         captureScreen(driver, "SearchProductTestPassed");
         verifySearchResult();
-        Thread.sleep(5000);
+        Thread.sleep(10000);
     }
 
     private void verifySearchResult() {
