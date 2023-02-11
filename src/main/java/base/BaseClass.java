@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Optional;
@@ -19,6 +20,7 @@ import utilities.ReadConfig;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class BaseClass {
@@ -38,6 +40,7 @@ public class BaseClass {
             ChromeOptions options = new ChromeOptions();
             System.setProperty("webdriver.chrome.driver", readConfig.getChromePath());
             driver = new ChromeDriver(options);
+            driver.manage().deleteAllCookies();
         }
         action = new Actions(driver);
         driver.manage().window().maximize();

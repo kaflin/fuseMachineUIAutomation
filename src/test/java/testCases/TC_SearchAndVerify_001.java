@@ -3,23 +3,25 @@ import base.BaseClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import testData.Constants;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 public class TC_SearchAndVerify_001 extends BaseClass {
 
     @Test(priority = 1)
     public void searchProduct() throws IOException {
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        WebElement element = driver.findElement(By.xpath("//*[@id=\"twotabsearchtextbox\"]"));
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebElement element = wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"twotabsearchtextbox\"]")));
         element.sendKeys(Constants.TEXT);
-        WebElement searchClick = driver.findElement(By.xpath("//*[@id=\"nav-search-submit-button\"]"));
-        action.moveToElement(searchClick).perform();
+        WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebElement searchClick = wait2.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"nav-search-submit-button\"]")));        action.moveToElement(searchClick).perform();
         searchClick.click();
         captureScreen(driver, "SearchProductTestPassed");
         verifySearchResult();
@@ -27,12 +29,13 @@ public class TC_SearchAndVerify_001 extends BaseClass {
 
     private void verifySearchResult() {
         String actualText;
-        WebElement text_result = driver.findElement(By.xpath("//span/div/div/span[contains(text(),'RESULTS')]"));
+        WebDriverWait wait3= new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebElement text_result = wait3.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span/div/div/span[contains(text(),'RESULTS')]")));
         String result = text_result.getText();
         if (result.equals("RESULTS")) {
-            // scroll down by 300 pixels with Javascript Executor
+            // scroll down by 350 pixels with Javascript Executor
             JavascriptExecutor jse = (JavascriptExecutor) driver;
-            jse.executeScript("window.scrollBy(0,300)");
+            jse.executeScript("window.scrollBy(0,350)");
             for (int i = 2; i <= 6; i++) { //Top 5 product starting from index 2
                 driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
                 try {
@@ -63,15 +66,15 @@ public class TC_SearchAndVerify_001 extends BaseClass {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebElement element = driver.findElement(By.xpath("//*[@id=\"search\"]/div[1]/div[1]/div/span[1]/div[1]/div[2]"));
         element.click();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        WebElement elementText= driver.findElement(By.xpath("//*[@id=\"productTitle\"]"));
+        WebDriverWait wait4 = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebElement elementText=wait4.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@id=\"productTitle\"]")));
         String productText = elementText.getText();
         logger.info(productText);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         Select drpSize = new Select(driver.findElement(By.xpath("//*[@name=\"dropdown_selected_size_name\"]")));
         drpSize.selectByVisibleText("7");
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("//*[@id=\"addToCart_feature_div\"]/div[1]")).click();
+        WebDriverWait wait5 = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait5.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"addToCart_feature_div\"]/div[1]"))).click();
         driver.findElement(By.xpath("//*[@id=\"sw-gtc\"]/span")).click();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebElement elemenText =driver.findElement(By.xpath("//span/span/span[@class=\"a-truncate-cut\"]"));
