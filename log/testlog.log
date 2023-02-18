@@ -1,0 +1,18 @@
+2023-02-18 16:54:45,918 - pages.ChangeAddress -INFO - Selecting United kingdom from Select option
+2023-02-18 16:54:56,244 - pages.SearchProduct -INFO - Entering Search Item in Search box
+2023-02-18 16:54:58,402 - pages.SearchProduct -INFO - Clicking on Search button.
+2023-02-18 16:55:12,465 - pages.VerifySearchResult -INFO - Searching for Result text
+2023-02-18 16:55:12,585 - pages.VerifySearchResult -INFO - Search Result Matched with Search Text
+2023-02-18 16:55:12,625 - pages.VerifySearchResult -INFO - Search Result Matched with Search Text
+2023-02-18 16:55:12,669 - pages.VerifySearchResult -INFO - Search Result Matched with Search Text
+2023-02-18 16:55:12,701 - pages.VerifySearchResult -INFO - Search Result doesnot Matched with Search Text
+2023-02-18 16:55:12,747 - pages.VerifySearchResult -INFO - Search Result Matched with Search Text
+2023-02-18 16:55:22,779 - pages.AddProductToCart -INFO - Clicking on First Product
+2023-02-18 16:55:32,905 - pages.AddProductToCart -INFO - Product Title text
+2023-02-18 16:55:32,950 - base.BaseClass -INFO - Kizik The Madrid Eco-Knit Slip-On Sneakers, Casual Trendy Shoes for Women and Men
+2023-02-18 16:55:32,951 - pages.AddProductToCart -INFO - Selecting DropDown of Select option
+2023-02-18 16:55:38,206 - pages.AddProductToCart -INFO - Clicking to Cart button
+2023-02-18 16:55:50,934 - pages.AddProductToCart -INFO - Clicking to Go To Cart button
+2023-02-18 16:55:58,399 - pages.AddProductToCart -INFO - Cart Product Title  text
+2023-02-18 16:55:58,445 - base.BaseClass -INFO - Kizik Madrid Hands Free Mens and Womens Sneakers, Casual Slip On Shoes for Women or Men, Comfortable for Walking, Women's and M…
+2023-02-18 16:55:58,451 - base.BaseClass -INFO - Product is not same as we selected after searching
