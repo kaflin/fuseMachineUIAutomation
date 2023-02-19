@@ -1,23 +1,13 @@
 package testCases;
 
 import base.BaseClass;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.AddProductToCart;
 import pages.ChangeAddress;
 import pages.SearchProduct;
 import pages.VerifySearchResult;
-import testData.Constants;
-
 import java.io.IOException;
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 public class TC_SearchAndVerify_001 extends BaseClass {
 
