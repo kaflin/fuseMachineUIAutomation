@@ -11,7 +11,8 @@ public class ReadConfig {
 
     public ReadConfig() {
         String workingDirectory = System.getProperty("user.dir");
-        File src = new File(workingDirectory + "\\src\\main\\resources\\config\\object.properties");
+//        File src = new File(workingDirectory + "\\src\\main\\resources\\config\\object.properties");//For window
+        File src = new File(workingDirectory + "/src/main/resources/config/object.properties");//For Linux
         try {
             FileInputStream fis = new FileInputStream(src);
             pro = new Properties();
