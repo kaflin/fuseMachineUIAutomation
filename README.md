@@ -45,7 +45,7 @@ you can configure your own webdriver
 
 3. Import the Project: If you already have a project, you can import it into IDE. Go to File >  Open > Existing Projects into Workspace. Select the project directory and click Finish.
 
-4. Select chromepath in object.properties and File in ReadConfig irrespective of your System i.e either linux for windows
+4. Select chromepath in object.properties and File in ReadConfig irrespective of your System i.e either linux or windows
 
 5. Run the Tests: To run the tests, Click on Run which is in upper section of tab > TestNg.xml Or Right click on TestNg.xml file and run TestNg.xml file. This will launch the browser and run the tests.
 
